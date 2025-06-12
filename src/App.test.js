@@ -7,8 +7,8 @@ test('renders login form', () => {
   expect(heading).toBeInTheDocument();
 });
 
-test('renders dashboard link', () => {
+test('does not render dashboard link before login', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Dashboard/i);
-  expect(linkElement).toBeInTheDocument();
+  const linkElement = screen.queryByText(/Dashboard/i);
+  expect(linkElement).not.toBeInTheDocument();
 });
