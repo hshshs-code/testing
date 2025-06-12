@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Typography, Box, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 
 function Login({ onLogin }) {
   const [role, setRole] = useState('Student');
@@ -9,20 +10,20 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Select Role:
-          <select value={role} onChange={(e) => setRole(e.target.value)}>
-            <option value="Student">Student</option>
-            <option value="Doctor">Doctor</option>
-            <option value="Manager">Manager</option>
-          </select>
-        </label>
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <Container className="page-container login-container">
+      <Typography variant="h4" gutterBottom>Login</Typography>
+      <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2, maxWidth: 300 }}>
+        <FormControl fullWidth>
+          <InputLabel id="role-label">Select Role</InputLabel>
+          <Select labelId="role-label" value={role} label="Select Role" onChange={(e) => setRole(e.target.value)}>
+            <MenuItem value="Student">Student</MenuItem>
+            <MenuItem value="Doctor">Doctor</MenuItem>
+            <MenuItem value="Manager">Manager</MenuItem>
+          </Select>
+        </FormControl>
+        <Button type="submit" variant="contained">Login</Button>
+      </Box>
+    </Container>
   );
 }
 

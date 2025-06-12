@@ -19,7 +19,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <Container sx={{ mt: 2 }}>
+    <Container className="page-container">
       <Typography variant="h4" gutterBottom>Dashboard</Typography>
       <Grid container spacing={2}>
         {entities.map((e) => (
